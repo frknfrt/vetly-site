@@ -1,0 +1,6 @@
+# NOT: Sitemap satırı yer tutucu bir alan adı (www.vetly.com) kullanıyor.
+# Gerçek alan adınızı aldığınızda güncelleyin.
+User-agent: *
+Allow: /
+
+Sitemap: https://www.vetly.com/sitemap.xml
