@@ -1,30 +1,43 @@
 import { useState, type FormEvent } from 'react';
+import { ApiError } from '../api/client';
+import { signupApi } from '../api/signupApi';
 
-type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
+type FormStatus = 'idle' | 'submitting';
 
-export function ContactCta() {
+interface ContactCtaProps {
+  selectedPlanCode: string | null;
+}
+
+export function ContactCta({ selectedPlanCode }: ContactCtaProps) {
   const [status, setStatus] = useState<FormStatus>('idle');
+  const [error, setError] = useState<string | null>(null);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const form = event.currentTarget;
+    const formData = new FormData(event.currentTarget);
+    const planCode = String(formData.get('planCode') || '');
+
+    if (!planCode) {
+      setError('Lütfen yukarıdaki fiyatlandırma bölümünden bir plan seçin.');
+      return;
+    }
+
     setStatus('submitting');
+    setError(null);
 
     try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { Accept: 'application/json' },
+      const phone = String(formData.get('phone') || '');
+      const session = await signupApi.initiateCheckout({
+        clinicName: String(formData.get('clinicName') || ''),
+        adminFullName: String(formData.get('adminFullName') || ''),
+        adminEmail: String(formData.get('adminEmail') || ''),
+        phone: phone === '' ? undefined : phone,
+        planCode,
       });
-
-      if (response.ok) {
-        setStatus('success');
-        form.reset();
-      } else {
-        setStatus('error');
-      }
-    } catch {
-      setStatus('error');
+      window.location.href = session.checkoutFormUrl;
+    } catch (err) {
+      setError(err instanceof ApiError ? err.message : 'Bir şeyler ters gitti, lütfen tekrar deneyin.');
+      setStatus('idle');
     }
   }
 
@@ -34,33 +47,29 @@ export function ContactCta() {
         <div className="cta-band-inner">
           <span className="eyebrow">Hemen Başlayın</span>
           <h2>Kliniğinizi bugün Vetly'ye taşıyın</h2>
-          <p>Formu doldurun, ekibimiz sizinle iletişime geçsin.</p>
+          <p>Formu doldurun, ödemenizi yapın, hesabınız hemen oluşsun.</p>
 
-          <form
-            className="real-cta-form"
-            action="https://formsubmit.co/info@vetly.com"
-            method="POST"
-            onSubmit={handleSubmit}
-          >
-            <input type="hidden" name="_subject" value="Yeni Vetly Kayıt Talebi" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_autoresponse" value="Talebiniz alındı, en kısa sürede sizinle iletişime geçeceğiz." />
+          <form className="real-cta-form" onSubmit={handleSubmit}>
+            <input type="hidden" name="planCode" value={selectedPlanCode ?? ''} />
 
             <div className="cta-form-row">
-              <input type="text" name="Klinik / İsim" placeholder="Klinik / İsim" required />
-              <input type="email" name="E-posta" placeholder="E-posta" required />
+              <input type="text" name="clinicName" placeholder="Klinik Adı" required />
+              <input type="text" name="adminFullName" placeholder="Adınız Soyadınız" required />
+            </div>
+            <div className="cta-form-row">
+              <input type="email" name="adminEmail" placeholder="E-posta" required />
+              <input type="tel" name="phone" placeholder="Telefon (opsiyonel)" />
             </div>
 
-            <button type="submit" className="btn btn-primary btn-block" disabled={status === 'submitting'}>
-              {status === 'submitting' ? 'Gönderiliyor...' : 'Kaydımı Oluştur'}
+            {!selectedPlanCode && (
+              <p className="cta-form-status cta-form-error">Lütfen yukarıdaki fiyatlandırma bölümünden bir plan seçin.</p>
+            )}
+
+            <button type="submit" className="btn btn-primary btn-block" disabled={status === 'submitting' || !selectedPlanCode}>
+              {status === 'submitting' ? 'Yönlendiriliyor...' : 'Ödemeye Geç'}
             </button>
 
-            {status === 'success' && (
-              <p className="cta-form-status cta-form-success">Talebiniz alındı, teşekkürler! En kısa sürede sizinle iletişime geçeceğiz.</p>
-            )}
-            {status === 'error' && (
-              <p className="cta-form-status cta-form-error">Bir şeyler ters gitti, lütfen tekrar deneyin ya da bizi arayın.</p>
-            )}
+            {error && <p className="cta-form-status cta-form-error">{error}</p>}
           </form>
 
           <p className="cta-fineprint">Ya da bizi arayın: [TELEFON NUMARANIZ]</p>
