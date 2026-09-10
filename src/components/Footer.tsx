@@ -37,7 +37,6 @@ export function Footer() {
       </div>
       <div className="wrap footer-bottom">
         <span>© 2026 Vetly. Tüm hakları saklıdır.</span>
-        <span>Bu sayfa bir tasarım taslağıdır.</span>
       </div>
     </footer>
   );
