@@ -13,12 +13,18 @@ import { Footer } from '../components/Footer';
 import { WhatsAppFloat } from '../components/WhatsAppFloat';
 import { CookieBanner } from '../components/CookieBanner';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export function HomePage() {
     const [selectedPlanCode, setSelectedPlanCode] = useState<string | null>(null);
     const [signupResult, setSignupResult] = useState<'basarili' | 'hata' | null>(null);
 
     useScrollReveal();
+    usePageMeta({
+        title: 'Vetly | Veteriner Klinik Yönetim Yazılımı',
+        description: 'Vetly ile randevu, hasta ve sahip kayıtları, laboratuvar, konaklama, stok ve faturalandırmayı tek panelden yönetin.',
+        path: '/',
+    });
 
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);

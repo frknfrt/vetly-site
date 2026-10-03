@@ -29,7 +29,7 @@ export function Faq() {
             </details>
             <details className="faq-item">
               <summary className="faq-question">Bir sorum olursa nasıl destek alabilirim?<span className="plus">+</span></summary>
-              <div className="faq-answer"><a href="mailto:info@vetly.com">info@vetly.com</a> adresinden bize ulaşabilir veya sağ alttaki WhatsApp butonunu kullanabilirsiniz.</div>
+              <div className="faq-answer"><a href="mailto:info@vetly.com.tr">info@vetly.com.tr</a> adresinden bize ulaşabilir veya sağ alttaki WhatsApp butonunu kullanabilirsiniz.</div>
             </details>
           </div>
         </div>

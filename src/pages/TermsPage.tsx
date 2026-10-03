@@ -1,7 +1,14 @@
 import { LegalHeader } from '../components/LegalHeader';
 import { LegalFooter } from '../components/LegalFooter';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export function TermsPage() {
+  usePageMeta({
+    title: 'Kullanım Şartları | Vetly',
+    description: 'Vetly veteriner klinik yönetim yazılımının kullanım şartları ve hizmet koşulları.',
+    path: '/kullanim-sartlari',
+  });
+
   return (
       <>
         <a className="skip-link" href="#main-content">İçeriğe atla</a>
@@ -11,7 +18,7 @@ export function TermsPage() {
           <section className="legal-hero wrap" id="main-content">
             <span className="eyebrow">Yasal</span>
             <h1>Kullanım Şartları</h1>
-            <p className="updated">Son güncelleme: 31.08.2026 · Bu metin bir taslaktır, yayına almadan önce bir hukuk danışmanına gözden geçirtmenizi öneririz.</p>
+            <p className="updated">Son güncelleme: 03.10.2026</p>
           </section>
 
           <section className="legal-body wrap">

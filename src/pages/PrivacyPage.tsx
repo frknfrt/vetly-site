@@ -1,7 +1,14 @@
 import { LegalHeader } from '../components/LegalHeader';
 import { LegalFooter } from '../components/LegalFooter';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export function PrivacyPage() {
+  usePageMeta({
+    title: 'Gizlilik Politikası | Vetly',
+    description: "Vetly'nin veteriner klinikleri için kişisel verilerin toplanması, işlenmesi ve korunmasına ilişkin KVKK uyumlu gizlilik politikası.",
+    path: '/gizlilik-politikasi',
+  });
+
   return (
       <>
         <a className="skip-link" href="#main-content">İçeriğe atla</a>
@@ -11,7 +18,7 @@ export function PrivacyPage() {
           <section className="legal-hero wrap" id="main-content">
             <span className="eyebrow">Yasal</span>
             <h1>Gizlilik Politikası</h1>
-            <p className="updated">Son güncelleme: 31.08.2026 · Bu metin bir taslaktır, yayına almadan önce bir hukuk danışmanına gözden geçirtmenizi öneririz.</p>
+            <p className="updated">Son güncelleme: 03.10.2026</p>
           </section>
 
           <section className="legal-body wrap">

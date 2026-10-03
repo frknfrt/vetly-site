@@ -25,7 +25,7 @@ export function Footer() {
           </div>
           <div className="footer-col">
             <h4>İletişim</h4>
-            <a href="mailto:info@vetly.com">info@vetly.com</a>
+            <a href="mailto:info@vetly.com.tr">info@vetly.com.tr</a>
             <a href="#iletisim">İletişim Formu</a>
           </div>
           <div className="footer-col">
