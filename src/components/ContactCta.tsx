@@ -27,12 +27,14 @@ export function ContactCta({ selectedPlanCode }: ContactCtaProps) {
 
     try {
       const phone = String(formData.get('phone') || '');
+      const couponCode = String(formData.get('couponCode') || '');
       const session = await signupApi.initiateCheckout({
         clinicName: String(formData.get('clinicName') || ''),
         adminFullName: String(formData.get('adminFullName') || ''),
         adminEmail: String(formData.get('adminEmail') || ''),
         phone: phone === '' ? undefined : phone,
         planCode,
+        couponCode: couponCode === '' ? undefined : couponCode,
       });
       window.location.href = session.checkoutFormUrl;
     } catch (err) {
@@ -59,6 +61,9 @@ export function ContactCta({ selectedPlanCode }: ContactCtaProps) {
               <div className="form-row">
                 <input type="email" name="adminEmail" placeholder="E-posta" required />
                 <input type="tel" name="phone" placeholder="Telefon (opsiyonel)" />
+              </div>
+              <div className="form-row">
+                <input type="text" name="couponCode" placeholder="Kupon Kodu (opsiyonel)" />
               </div>
 
               {!selectedPlanCode && (

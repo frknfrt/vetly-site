@@ -23,6 +23,7 @@ export interface SignupCheckoutPayload {
   adminEmail: string;
   phone?: string;
   planCode: string;
+  couponCode?: string;
 }
 
 export const signupApi = {
