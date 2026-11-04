@@ -9,17 +9,17 @@ export function HowItWorks() {
           </div>
           <div className="steps-wrap">
             <div className="steps">
-              <div className="step">
+              <div className="step reveal">
                 <div className="step-num">1</div>
                 <h3>Kayıt Olun</h3>
                 <p>Birkaç dakikada hesabınızı oluşturun, kliniğinizin temel bilgilerini tanımlayın.</p>
               </div>
-              <div className="step">
+              <div className="step reveal">
                 <div className="step-num">2</div>
                 <h3>Kliniğinizi Kurun</h3>
                 <p>Ekibinizi, hizmetlerinizi, ilaç kataloğunuzu ve şubelerinizi sisteme aktarın.</p>
               </div>
-              <div className="step">
+              <div className="step reveal">
                 <div className="step-num">3</div>
                 <h3>Kullanmaya Başlayın</h3>
                 <p>Randevularınızı, hasta kuyruğunuzu ve faturalarınızı tek panelden yönetmeye başlayın.</p>

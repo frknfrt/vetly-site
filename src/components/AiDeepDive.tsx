@@ -8,6 +8,34 @@ export function AiDeepDive() {
             <p>Vetly'nin AI Merkezi, hekimlerin karar sürecini hızlandıran araçları bir araya getirir — hangisinin gerçek yapay zekâ, hangisinin kural tabanlı kontrol olduğunu her zaman net şekilde gösteririz.</p>
           </div>
 
+          <div className="deepdive-grid ai-intro">
+            <div className="deepdive-visual reveal">
+              <div className="deepdive-visual-frame">
+                <svg viewBox="0 0 240 200" width="100%" height="100%" aria-hidden="true">
+                  <circle cx="120" cy="100" r="80" style={{ fill: 'var(--color-ai-100)' }} opacity="0.6" />
+                  <ellipse cx="120" cy="168" rx="50" ry="8" style={{ fill: 'var(--color-ink-900)' }} opacity="0.08" />
+
+                  <line x1="120" y1="96" x2="62" y2="60" stroke="var(--color-ai-600)" strokeWidth="2" opacity="0.4" />
+                  <line x1="120" y1="96" x2="178" y2="56" stroke="var(--color-ai-600)" strokeWidth="2" opacity="0.4" />
+                  <line x1="120" y1="96" x2="56" y2="128" stroke="var(--color-ai-600)" strokeWidth="2" opacity="0.4" />
+                  <line x1="120" y1="96" x2="182" y2="134" stroke="var(--color-ai-600)" strokeWidth="2" opacity="0.4" />
+
+                  <circle cx="62" cy="60" r="11" style={{ fill: 'var(--color-paper)' }} stroke="var(--color-ai-600)" strokeWidth="2" />
+                  <circle cx="178" cy="56" r="9" style={{ fill: 'var(--color-paper)' }} stroke="var(--color-ai-600)" strokeWidth="2" />
+                  <circle cx="56" cy="128" r="9" style={{ fill: 'var(--color-paper)' }} stroke="var(--color-ai-600)" strokeWidth="2" />
+                  <circle cx="182" cy="134" r="11" style={{ fill: 'var(--color-paper)' }} stroke="var(--color-ai-600)" strokeWidth="2" />
+
+                  <rect x="90" y="66" width="60" height="60" rx="16" style={{ fill: 'var(--color-ai-600)' }} />
+                  <path d="M120 80 l6 14 14 6 -14 6 -6 14 -6 -14 -14 -6 14 -6 Z" style={{ fill: 'var(--color-paper)' }} />
+                </svg>
+              </div>
+            </div>
+            <div className="deepdive-card reveal">
+              <h3>Hekim karar verir, AI hızlandırır</h3>
+              <p className="dd-desc">Her yapay zekâ önerisi net şekilde işaretlenir ve hekim onayından geçmeden hasta kaydına işlenmez — AI yalnızca süreci hızlandırır, kararı değiştirmez.</p>
+            </div>
+          </div>
+
           <div className="ai-group reveal">
             <div className="ai-group-head"><span className="ai-group-badge is-ai">Yapay Zekâ Destekli</span></div>
             <div className="ai-card-grid">

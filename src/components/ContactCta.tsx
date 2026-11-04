@@ -1,16 +1,22 @@
 import { useState, type FormEvent } from 'react';
 import { ApiError } from '../api/client';
-import { signupApi } from '../api/signupApi';
+import { signupApi, type SignupPlan } from '../api/signupApi';
 
 type FormStatus = 'idle' | 'submitting';
 
 interface ContactCtaProps {
-  selectedPlanCode: string | null;
+  selectedPlan: SignupPlan | null;
 }
 
-export function ContactCta({ selectedPlanCode }: ContactCtaProps) {
+// REVIZE (2026-11-01, canli QA bulgusu): daha once sadece plan KODU
+// geliyordu -- "Hemen Basla"ya basinca odeme butonu sessizce aktif
+// oluyordu ama formda hangi plani secip odeyecegini gosteren hicbir sey
+// yoktu. Artik tam plan nesnesi alinip acikca gosteriliyor.
+export function ContactCta({ selectedPlan }: ContactCtaProps) {
+  const selectedPlanCode = selectedPlan?.code ?? null;
   const [status, setStatus] = useState<FormStatus>('idle');
   const [error, setError] = useState<string | null>(null);
+  const [showCoupon, setShowCoupon] = useState(false);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -62,12 +68,22 @@ export function ContactCta({ selectedPlanCode }: ContactCtaProps) {
                 <input type="email" name="adminEmail" placeholder="E-posta" required />
                 <input type="tel" name="phone" placeholder="Telefon (opsiyonel)" />
               </div>
-              <div className="form-row">
-                <input type="text" name="couponCode" placeholder="Kupon Kodu (opsiyonel)" />
-              </div>
+              {showCoupon ? (
+                  <div className="form-row">
+                    <input type="text" name="couponCode" placeholder="Kupon Kodu" autoFocus />
+                  </div>
+              ) : (
+                  <button type="button" className="coupon-toggle" onClick={() => setShowCoupon(true)}>
+                    Kupon kodunuz var mı?
+                  </button>
+              )}
 
-              {!selectedPlanCode && (
-                  <p className="form-status error">Lütfen yukarıdaki fiyatlandırma bölümünden bir plan seçin.</p>
+              {selectedPlan ? (
+                  <p className="form-status success">
+                    Seçili plan: <strong>{selectedPlan.name}</strong> — {selectedPlan.monthlyPrice.toLocaleString('tr-TR')}₺ / ay
+                  </p>
+              ) : (
+                  <p className="form-status">Devam etmek için yukarıdan bir plan seçin.</p>
               )}
 
               <button type="submit" className="btn btn-primary btn-block" disabled={status === 'submitting' || !selectedPlanCode}>

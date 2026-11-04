@@ -2,33 +2,47 @@ import { useEffect, useState } from 'react';
 import { signupApi, type SignupPlan } from '../api/signupApi';
 
 interface PricingProps {
-  onSelectPlan: (planCode: string) => void;
+  onSelectPlan: (plan: SignupPlan) => void;
 }
 
 export function Pricing({ onSelectPlan }: PricingProps) {
   const [plans, setPlans] = useState<SignupPlan[]>([]);
   const [loading, setLoading] = useState(true);
+  const [cardsVisible, setCardsVisible] = useState(false);
 
   useEffect(() => {
     signupApi
       .getPlans()
-      .then(setPlans)
+      .then((fetched) => setPlans([...fetched].sort((a, b) => a.monthlyPrice - b.monthlyPrice)))
       .catch(() => setPlans([]))
       .finally(() => setLoading(false));
   }, []);
 
-  function handleSelect(planCode: string) {
-    onSelectPlan(planCode);
+  useEffect(() => {
+    // Plan kartlari backend'den veri geldikten SONRA DOM'a ekleniyor; sayfa
+    // acilisinda bir kerelik calisan global .reveal gozlemcisi (useScrollReveal)
+    // bu kartlari hic gormuyor ve opacity:0'da kaliyorlar -- fiyatlar "gelmiyor"
+    // gibi gorunuyordu. Kartlar render oldugunda kendi gorunurlugunu tetikliyoruz.
+    if (plans.length === 0) return;
+    const raf1 = requestAnimationFrame(() => {
+      const raf2 = requestAnimationFrame(() => setCardsVisible(true));
+      return () => cancelAnimationFrame(raf2);
+    });
+    return () => cancelAnimationFrame(raf1);
+  }, [plans]);
+
+  function handleSelect(plan: SignupPlan) {
+    onSelectPlan(plan);
     document.getElementById('iletisim')?.scrollIntoView({ behavior: 'smooth' });
   }
 
   return (
     <section className="section pricing" id="fiyatlandirma">
       <div className="wrap">
-        <div className="section-head">
+        <div className="section-head reveal">
           <span className="eyebrow">Fiyatlandırma</span>
           <h2>Kliniğinizin büyüklüğüne uygun paket</h2>
-          <p>İki basit paket, gizli ücret yok. Yıllık ödemede 2 ay ücretsiz kazanın.</p>
+          <p>Basit paketler, gizli ücret yok. Yıllık ödemede 2 ay ücretsiz kazanın.</p>
         </div>
 
         {loading ? (
@@ -38,7 +52,10 @@ export function Pricing({ onSelectPlan }: PricingProps) {
         ) : (
           <div className="pricing-grid">
             {plans.map((plan) => (
-              <div key={plan.code} className={plan.badge ? 'price-card popular' : 'price-card'}>
+              <div
+                key={plan.code}
+                className={["price-card", plan.badge ? "popular" : "", "reveal", cardsVisible ? "is-visible" : ""].filter(Boolean).join(" ")}
+              >
                 {plan.badge && <span className="price-badge">{plan.badge}</span>}
                 <div>
                   <div className="price-plan-name">{plan.name}</div>
@@ -71,7 +88,7 @@ export function Pricing({ onSelectPlan }: PricingProps) {
                 <button
                   type="button"
                   className={plan.badge ? 'btn btn-primary btn-block' : 'btn btn-ghost btn-block'}
-                  onClick={() => handleSelect(plan.code)}
+                  onClick={() => handleSelect(plan)}
                 >
                   Hemen Başla
                 </button>

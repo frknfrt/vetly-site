@@ -26,7 +26,12 @@ export function Footer() {
           <div className="footer-col">
             <h4>İletişim</h4>
             <a href="mailto:info@vetly.com.tr">info@vetly.com.tr</a>
-            <a href="#iletisim">İletişim Formu</a>
+            {/* REVIZE (2026-11-01, canli QA bulgusu): bu link #iletisim'e, yani
+                ContactCta'daki ODEME/KAYIT formuna gidiyor -- gercek bir "bize
+                soru sorun" formu DEGIL. Eskiden "Iletisim Formu" diye etiketliydi,
+                bu da soru sormak isteyen bir ziyaretciyi yaniltiyordu. Etiket,
+                linkin gercekte gotürdugu yeri yansitacak sekilde duzeltildi. */}
+            <a href="#iletisim">Kayıt / Üyelik Formu</a>
           </div>
           <div className="footer-col">
             <h4>Yasal</h4>

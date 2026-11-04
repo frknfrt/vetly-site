@@ -4,6 +4,7 @@ import { Hero } from '../components/Hero';
 import { Features } from '../components/Features';
 import { CompareSection } from '../components/CompareSection';
 import { LabDeepDive } from '../components/LabDeepDive';
+import { TarbilDeepDive } from '../components/TarbilDeepDive';
 import { AiDeepDive } from '../components/AiDeepDive';
 import { HowItWorks } from '../components/HowItWorks';
 import { Pricing } from '../components/Pricing';
@@ -14,9 +15,14 @@ import { WhatsAppFloat } from '../components/WhatsAppFloat';
 import { CookieBanner } from '../components/CookieBanner';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { usePageMeta } from '../hooks/usePageMeta';
+import type { SignupPlan } from '../api/signupApi';
 
 export function HomePage() {
-    const [selectedPlanCode, setSelectedPlanCode] = useState<string | null>(null);
+    // REVIZE (2026-11-01, canli QA bulgusu): sadece plan KODU tutuluyordu --
+    // ContactCta formunda kullaniciya hangi plani sectigini gosterecek bir isim/
+    // fiyat yoktu, odeme butonu sessizce aktif oluyordu. Artik tum plan nesnesi
+    // tutuluyor ki ContactCta secili plani acikca gosterebilsin.
+    const [selectedPlan, setSelectedPlan] = useState<SignupPlan | null>(null);
     const [signupResult, setSignupResult] = useState<'basarili' | 'hata' | null>(null);
 
     useScrollReveal();
@@ -56,11 +62,12 @@ export function HomePage() {
                 <Features />
                 <CompareSection />
                 <LabDeepDive />
+                <TarbilDeepDive />
                 <AiDeepDive />
                 <HowItWorks />
-                <Pricing onSelectPlan={setSelectedPlanCode} />
+                <Pricing onSelectPlan={setSelectedPlan} />
                 <Faq />
-                <ContactCta selectedPlanCode={selectedPlanCode} />
+                <ContactCta selectedPlan={selectedPlan} />
                 <Footer />
                 <WhatsAppFloat />
                 <CookieBanner />
