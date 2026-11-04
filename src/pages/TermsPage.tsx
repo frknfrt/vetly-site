@@ -29,7 +29,7 @@ export function TermsPage() {
 
             <section>
               <h2>2. Hizmetin Tanımı</h2>
-              <p>Vetly; randevu takvimi, hasta ve sahip kayıtları, aşı takvimi ve TARBİL bildirimleri, laboratuvar, görüntüleme, konaklama, stok ve ilaç yönetimi, faturalandırma ve e-Fatura, çoklu şube desteği, raporlama ve AI destekli özellikler sunan bir veteriner klinik yönetim yazılımıdır. Hizmet kapsamı zaman içinde geliştirilebilir veya güncellenebilir.</p>
+              <p>Vetly; randevu takvimi, hasta ve sahip kayıtları, aşı takvimi ve TARBİL bildirimleri, laboratuvar, görüntüleme, konaklama, stok ve ilaç yönetimi, faturalandırma, çoklu şube desteği, raporlama ve AI destekli özellikler sunan bir veteriner klinik yönetim yazılımıdır. Hizmet kapsamı zaman içinde geliştirilebilir veya güncellenebilir.</p>
             </section>
 
             <section>
