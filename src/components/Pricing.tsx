@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { signupApi, type SignupPlan } from '../api/signupApi';
+import { planLimitLines, visibleFeatures } from '../lib/planLimits';
 
 interface PricingProps {
   onSelectPlan: (plan: SignupPlan) => void;
@@ -73,9 +74,17 @@ export function Pricing({ onSelectPlan }: PricingProps) {
                     </p>
                   )}
                 </div>
-                {plan.features.length > 0 && (
+                {(plan.features.length > 0 || planLimitLines(plan).length > 0) && (
                   <div className="price-feature-list">
-                    {plan.features.map((feature) => (
+                    {planLimitLines(plan).map((line) => (
+                      <div className="price-feature price-limit" key={line}>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M4 12l5 5L20 6" />
+                        </svg>
+                        <span>{line}</span>
+                      </div>
+                    ))}
+                    {visibleFeatures(plan).map((feature) => (
                       <div className="price-feature" key={feature}>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M4 12l5 5L20 6" />

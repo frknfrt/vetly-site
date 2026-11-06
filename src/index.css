@@ -285,6 +285,9 @@ a:focus-visible, button:focus-visible, .btn:focus-visible {
 .price-feature-list { display: flex; flex-direction: column; gap: 11px; flex: 1; }
 .price-feature { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--color-text-ink); }
 .price-feature svg { flex-shrink: 0; margin-top: 2px; color: var(--color-brand-500); }
+.price-limit { font-weight: 700; }
+.deepdive-card .dd-steps { margin: 12px 0 14px; padding-left: 20px; font-size: 14.5px; line-height: 1.6; color: var(--color-text-ink); }
+.deepdive-card .dd-steps li { margin-bottom: 6px; }
 .pricing-footnote { text-align: center; margin-top: 32px; font-size: 14.5px; color: var(--color-text-muted); }
 .pricing-footnote a { text-decoration: underline; text-underline-offset: 2px; }
 
@@ -416,6 +419,42 @@ a:focus-visible, button:focus-visible, .btn:focus-visible {
 }
 .cookie-banner p { font-size: 13.5px; line-height: 1.55; color: rgba(240,238,247,.75); flex: 1; min-width: 220px; margin: 0; }
 .cookie-banner .btn { flex-shrink: 0; }
+.cookie-banner p a { color: #ffffff; text-decoration: underline; }
+.cookie-actions { display: flex; gap: 8px; flex-wrap: wrap; flex-shrink: 0; }
+/* Reddet, Kabul Et ile aynı boyutta ve aynı katmanda (KVKK çerez rehberi: reddetmek kabul etmek kadar kolay olmalı). */
+.cookie-btn-secondary { background: transparent; color: #ffffff; border: 1.5px solid rgba(255,255,255,.55); }
+.cookie-btn-secondary:hover { border-color: #ffffff; background: rgba(255,255,255,.08); }
+.cookie-modal-backdrop {
+  position: fixed; inset: 0; z-index: 60; background: rgba(24,15,36,.55);
+  display: flex; align-items: center; justify-content: center; padding: 16px;
+}
+.cookie-modal {
+  background: var(--color-paper); color: var(--color-text-ink); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg); width: 100%; max-width: 560px; max-height: calc(100vh - 32px); overflow-y: auto;
+  padding: 24px; outline: none;
+}
+.cookie-modal h2 { font-family: var(--font-heading); font-size: 20px; margin: 0 0 6px; }
+.cookie-modal-lead { font-size: 14px; color: var(--color-text-muted); margin: 0 0 16px; line-height: 1.55; }
+.cookie-category {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+  padding: 14px 0; border-top: 1px solid var(--color-border); cursor: pointer;
+}
+.cookie-category:first-of-type { cursor: default; }
+.cookie-category h3 { font-size: 15px; margin: 0 0 4px; }
+.cookie-category p { font-size: 13.5px; color: var(--color-text-muted); margin: 0; line-height: 1.5; }
+.cookie-category input[type=checkbox] { width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; accent-color: var(--color-brand-500); cursor: pointer; }
+.cookie-always { font-size: 12.5px; font-weight: 600; color: var(--color-success-700); white-space: nowrap; }
+.cookie-modal-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; margin-top: 18px; }
+.footer-link-btn {
+  display: block; background: none; border: none; padding: 0; cursor: pointer; text-align: left;
+  font: inherit; font-size: 14.5px; font-weight: 600; color: var(--color-text-ink); margin-bottom: 10px;
+}
+.footer-link-btn:hover { color: var(--color-brand-500); }
+.footer-links-row .footer-link-btn { display: inline; font-size: 14px; margin: 0; }
+@media (max-width: 520px) {
+  .cookie-actions, .cookie-modal-actions { width: 100%; }
+  .cookie-actions .btn, .cookie-modal-actions .btn { flex: 1 1 auto; justify-content: center; }
+}
 
 /* footer */
 footer { background: var(--color-cream); padding: 48px 24px 32px; border-top: 1px solid var(--color-border); }
@@ -440,6 +479,11 @@ footer { background: var(--color-cream); padding: 48px 24px 32px; border-top: 1p
 .legal-body { padding: 0 24px 88px; }
 .legal-body section { margin-bottom: 36px; }
 .legal-body h2 { font-size: 19px; font-weight: 700; margin-bottom: 12px; }
+.legal-table-wrap { overflow-x: auto; margin: 14px 0; border: 1px solid var(--color-border); border-radius: var(--radius-md); }
+.legal-table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.5; min-width: 560px; }
+.legal-table th, .legal-table td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--color-border); }
+.legal-table th { background: var(--color-cream); font-weight: 700; font-size: 13px; }
+.legal-table tr:last-child td { border-bottom: none; }
 .legal-body p, .legal-body li { font-size: 15px; line-height: 1.7; color: var(--color-text-muted); }
 .legal-body ul { margin: 10px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }
 .legal-body p + p { margin-top: 10px; }
@@ -475,7 +519,8 @@ footer.legal-footer { background: var(--color-paper); border-top: 1px solid var(
   .compare-wrap { grid-template-columns: 1fr; }
   .deepdive-grid { grid-template-columns: 1fr; }
   .ai-card-grid { grid-template-columns: 1fr; }
-  .tarbil-benefit-grid { grid-template-columns: 1fr; }
+  /* masaüstü kuralı iki sınıflı (.tarbil-deepdive .tarbil-benefit-grid); aynı güçte yazılmazsa telefonda 3 sütun kalıp sayfayı taşırıyordu */
+  .tarbil-deepdive .tarbil-benefit-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .section { padding: 60px 18px; }

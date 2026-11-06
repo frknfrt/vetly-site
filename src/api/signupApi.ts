@@ -11,6 +11,12 @@ export interface SignupPlan {
   imageUrl: string | null;
   features: string[];
   active: boolean;
+  /** Paketteki modüller (ör. AI_ASSISTANT). */
+  enabledFeatures?: string[];
+  /** Aylık yapay zekâ hakkı; null = sınırsız. */
+  monthlyAiQuota?: number | null;
+  /** En fazla şube sayısı; null = sınırsız. */
+  maxBranches?: number | null;
 }
 
 export interface CheckoutSession {

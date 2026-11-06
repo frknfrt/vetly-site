@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { openCookieSettings } from '../lib/cookieConsent';
 import logoMark from '../assets/logo-mark.png';
 
 export function Footer() {
@@ -37,6 +38,7 @@ export function Footer() {
             <h4>Yasal</h4>
             <Link to="/gizlilik-politikasi">Gizlilik Politikası</Link>
             <Link to="/kullanim-sartlari">Kullanım Şartları</Link>
+            <button type="button" className="footer-link-btn" onClick={openCookieSettings}>Çerez Ayarları</button>
           </div>
         </div>
       </div>

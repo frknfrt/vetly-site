@@ -14,7 +14,7 @@ export function Features() {
               <div className="feature-card reveal">
                 <div className="feature-icon"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="16" rx="3" /><line x1="3" y1="10" x2="21" y2="10" /><line x1="8" y1="3" x2="8" y2="7" /><line x1="16" y1="3" x2="16" y2="7" /><circle cx="8" cy="14.5" r="1" /><circle cx="12" cy="14.5" r="1" /><circle cx="16" cy="14.5" r="1" /></svg></div>
                 <h4>Randevu Takvimi</h4>
-                <p>Online randevu talepleri, çakışmasız takvim, no-show riski takibi ve otomatik hatırlatmalar.</p>
+                <p>Online randevu talepleri, çakışmasız takvim, gelmeme riski takibi ve otomatik hatırlatmalar.</p>
               </div>
               <div className="feature-card reveal accent-gold">
                 <div className="feature-icon"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="8" r="3.2" /><path d="M4 20c0-3 2.2-5.2 5-5.2s5 2.2 5 5.2" /><circle cx="18" cy="8.5" r="2.4" /><path d="M15.5 14.4c2.3.3 4 2.2 4 4.6" /></svg></div>
@@ -41,7 +41,7 @@ export function Features() {
               <div className="feature-card reveal">
                 <div className="feature-icon"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="9" width="8" height="12" rx="1" /><rect x="13" y="4" width="8" height="17" rx="1" /></svg></div>
                 <h4>Konaklama</h4>
-                <p>Pansiyon ve konaklama rezervasyonlarını, kafes/oda doluluğunu ve check-in/out'u tek yerden yönetin.</p>
+                <p>Pansiyon ve konaklama rezervasyonlarını, kafes/oda doluluğunu ve giriş-çıkış'u tek yerden yönetin.</p>
               </div>
             </div>
           </div>

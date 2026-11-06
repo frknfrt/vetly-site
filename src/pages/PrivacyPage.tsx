@@ -18,7 +18,7 @@ export function PrivacyPage() {
           <section className="legal-hero wrap" id="main-content">
             <span className="eyebrow">Yasal</span>
             <h1>Gizlilik Politikası</h1>
-            <p className="updated">Son güncelleme: 03.10.2026</p>
+            <p className="updated">Son güncelleme: 06.11.2026</p>
           </section>
 
           <section className="legal-body wrap">
@@ -57,12 +57,31 @@ export function PrivacyPage() {
 
             <section>
               <h2>6. Kişisel Verilerin Aktarılması ve Veri İşleyenler</h2>
-              <p>Hizmetin sunulması sırasında sınırlı ölçüde yetkilendirilmiş üçüncü taraf hizmet sağlayıcılarından (barındırma/altyapı sağlayıcısı, SMS ve WhatsApp mesajlaşma altyapısı sağlayıcısı, iletişim formu/e-posta gönderim hizmeti gibi) yararlanılmaktadır. Bu sağlayıcılar verilerinizi yalnızca Hizmetin ifası için gerekli ölçüde ve sözleşmesel gizlilik yükümlülükleri çerçevesinde işleyebilir. Kullanılan sağlayıcılardan bir kısmının yurt dışında yerleşik olması halinde, aktarım KVKK'nın 9. maddesinde öngörülen açık rıza veya Kurul tarafından belirlenen yeterli koruma mekanizmaları çerçevesinde gerçekleştirilir. Güncel sağlayıcı listesi talep üzerine paylaşılabilir.</p>
+              <p>Hizmeti sunmak için aşağıdaki hizmet sağlayıcılarından yararlanıyoruz. Verileriniz Türkiye'deki sunucularımızda saklanır; yurt dışında bulunan sağlayıcılara yalnızca ilgili özellik kullanıldığında ve yalnızca o özelliğin gerektirdiği veri gönderilir.</p>
+              <div className="legal-table-wrap">
+                <table className="legal-table">
+                  <thead><tr><th>Sağlayıcı</th><th>Ülke</th><th>Hizmet</th><th>Aktarılan veri</th></tr></thead>
+                  <tbody>
+                    <tr><td>Güzel Hosting / GNET İnternet Telekomünikasyon A.Ş.</td><td>Türkiye (İstanbul)</td><td>Sunucu, veritabanı, dosya depolama ve e-posta</td><td>Hizmetteki tüm veriler</td></tr>
+                    <tr><td>İleti Merkezi</td><td>Türkiye</td><td>SMS gönderimi</td><td>Alıcının telefon numarası ve mesaj metni</td></tr>
+                    <tr><td>iyzico</td><td>Türkiye</td><td>Abonelik ödemesi</td><td>Ödeme yapan yetkilinin ödeme bilgileri</td></tr>
+                    <tr><td>Anthropic PBC</td><td>ABD</td><td>Yapay zekâ özellikleri (tanı desteği, tedavi önerisi, sesli not, sonuç fotoğrafı okuma)</td><td>Hayvanın türü, ırkı, yaşı, kilosu ve son bir yıllık klinik kayıtları; muayene notu metni; yüklenen sonuç fotoğrafı. Hayvan sahibinin adı, çip ve pasaport numarası gönderilmez; metindeki telefon, TC kimlik ve e-posta bilgileri gönderilmeden önce maskelenir.</td></tr>
+                    <tr><td>Meta Platforms (WhatsApp)</td><td>ABD</td><td>WhatsApp hatırlatma mesajları</td><td>Alıcının telefon numarası ve mesaj metni</td></tr>
+                    <tr><td>Google LLC</td><td>ABD</td><td>Tarayıcının sesle dikte özelliği (Chrome)</td><td>Hekimin dikte ettiği ses kaydı</td></tr>
+                    <tr><td>Google LLC</td><td>ABD</td><td>Yazı tipleri (Google Fonts)</td><td>Ziyaretçinin IP adresi ve tarayıcı bilgisi</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>Yapay zekâ, WhatsApp ve sesle dikte özellikleri kullanılmadığı sürece bu sağlayıcılara veri aktarılmaz. Sağlayıcılar verileri yalnızca Hizmetin ifası için ve sözleşmesel gizlilik yükümlülükleri çerçevesinde işler.</p>
+              {/* TODO(hukuk): Standart sözleşmeler imzalanıp Kurul'a bildirildiğinde dayanak buraya açıkça yazılmalı (ör. "Kurul'un ilan ettiği standart sözleşme imzalanarak ve Kurul'a bildirilerek"). Sağlayıcı listesi değişince 30 gün önceden klinikler bilgilendirilir. */}
+              <p>Sağlayıcı listesinde değişiklik olduğunda bu bölümü güncelleriz; kliniklerimizi değişiklikten en az 30 gün önce e-posta ile bilgilendiririz.</p>
             </section>
 
-            <section>
+            <section id="cerezler">
               <h2>7. Çerezler</h2>
-              <p>Web sitemiz, deneyiminizi iyileştirmek ve site kullanımını analiz etmek amacıyla çerezler kullanabilir. Tarayıcı ayarlarınızdan çerez tercihlerinizi yönetebilirsiniz.</p>
+              <p>Sitemiz yalnızca çalışması için zorunlu olan çerezleri izninizi beklemeden kullanır. Şu an kullanılan tek çerez, çerez tercihinizi bir yıl boyunca hatırlayan <code>vetly_cookie_consent</code> çerezidir.</p>
+              <p>Analiz ve pazarlama çerezleri yalnızca açık izninizle kullanılır; izin vermezseniz bu çerezler hiç yüklenmez. Şu an sitede analiz veya pazarlama çerezi kullanılmamaktadır; ileride eklenirse bu bölüm güncellenecek ve izniniz ayrıca istenecektir.</p>
+              <p>Kararınızı istediğiniz zaman sayfanın altındaki <strong>Çerez Ayarları</strong> bağlantısından değiştirebilir veya geri alabilirsiniz. Tarayıcı ayarlarınızdan da çerezleri silebilirsiniz.</p>
             </section>
 
             <section>

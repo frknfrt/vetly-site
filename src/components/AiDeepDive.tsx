@@ -4,7 +4,7 @@ export function AiDeepDive() {
         <div className="wrap">
           <div className="section-head reveal">
             <span className="eyebrow">AI Merkezi</span>
-            <h2>Profesyonel yapay zekâ destekli teşhis araçları</h2>
+            <h2>Hekimin kararını hızlandıran yapay zekâ yardımcıları</h2>
             <p>Vetly'nin AI Merkezi, hekimlerin karar sürecini hızlandıran araçları bir araya getirir — hangisinin gerçek yapay zekâ, hangisinin kural tabanlı kontrol olduğunu her zaman net şekilde gösteririz.</p>
           </div>
 
@@ -47,12 +47,12 @@ export function AiDeepDive() {
               <div className="ai-feature-card is-ai">
                 <div className="ai-feature-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M9 3h6a1 1 0 0 1 1 1v1h1a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h1V4a1 1 0 0 1 1-1Z" /><path d="M8 12l2.5 2.5L16 9" /></svg></div>
                 <h3>Tanı Desteği</h3>
-                <p>Girilen semptom ve bulgulara göre olası tanılar için yapay zekâ destekli öneriler sunar; nihai karar her zaman hekimde kalır.</p>
+                <p>Girilen semptom ve bulgulara göre olası tanılar için taslak öneriler sunar. Öneriler kaynak göstermez ve kesin tanı yerine geçmez; nihai karar her zaman hekimde kalır.</p>
               </div>
               <div className="ai-feature-card is-ai">
                 <div className="ai-feature-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M6 3h12v17l-2.5-1.5L13 20l-2.5-1.5L8 20l-2-1.5V3z" /><path d="M9 8l1.5 1.5L14 6" /></svg></div>
                 <h3>AI Tedavi Önerisi</h3>
-                <p>Muayenenin Assessment bölümüne ve hastanın son muayenelerine dayanarak bir tedavi planı önerisi üretir; öneri hekim onayına sunulur, Plan alanına siz onaylamadan uygulanmaz.</p>
+                <p>Ön tanıya ve hastanın son muayenelerine dayanarak bir tedavi planı önerisi üretir; öneri hekim onayına sunulur, Tedavi Planı alanına siz onaylamadan uygulanmaz.</p>
               </div>
             </div>
           </div>

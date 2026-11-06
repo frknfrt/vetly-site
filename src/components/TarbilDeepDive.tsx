@@ -4,14 +4,20 @@ export function TarbilDeepDive() {
         <div className="wrap">
           <div className="section-head reveal">
             <span className="eyebrow">Yakından Bakış</span>
-            <h2>TARBİL bildirimleri otomatik ve eksiksiz gider</h2>
-            <p>Aşı ve tedavi kayıtlarınız, resmi TARBİL sistemine manuel veri girişi olmadan otomatik olarak iletilir; her bildirimin durumunu anlık olarak takip edersiniz.</p>
+            <h2>TARBİL formunu Vetly doldurur, onayı siz verirsiniz</h2>
+            <p>Chrome'a ekleyeceğiniz Vetly TARBİL Yardımcısı, Vetly'deki aşı ve reçete kayıtlarını TARBİL formuna sizin yerinize doldurur. TARBİL'e e-Devlet ile siz girersiniz; kaydı onaylamak her zaman hekimdedir.</p>
           </div>
 
           <div className="deepdive-grid">
             <div className="deepdive-card reveal">
-              <h3>Otomatik Bildirim</h3>
-              <p className="dd-desc">Her kayıt TARBİL'e iletildiğinde durumu anında güncellenir; bekleyen veya hatalı bildirimler otomatik olarak işaretlenerek ekibinize bildirilir.</p>
+              <h3>Nasıl çalışır?</h3>
+              <ol className="dd-steps">
+                <li>Aşıyı ya da stoktan verilen ilacı Vetly'de kaydedin.</li>
+                <li><strong>TARBİL'e aktar</strong>'a basın; TARBİL yeni sekmede açılır.</li>
+                <li>Eklenti tarihi, hayvanı (çip ya da pasaport numarasıyla) ve ürünü forma girer.</li>
+                <li>Kontrol edip <strong>Onayla</strong>'ya siz basarsınız; Vetly kaydı "Gönderildi" olarak işaretler.</li>
+              </ol>
+              <p className="dd-desc">Gereksinimler: Google Chrome ve TARBİL'de yetkili hekim hesabı. Eklenti kedi ve köpek aşıları ile stoktan verilen ilaç reçetelerini destekler.</p>
             </div>
             <div className="deepdive-visual reveal">
               <div className="deepdive-visual-frame">
@@ -42,18 +48,18 @@ export function TarbilDeepDive() {
           <div className="ai-card-grid tarbil-benefit-grid">
             <div className="ai-feature-card is-tarbil reveal">
               <div className="ai-feature-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M9 3v4M15 3v4M4 9h16M6 5h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" /><path d="M8 15l2.5 2.5L16 12" /></svg></div>
-              <h3>Manuel Veri Girişi Yok</h3>
-              <p>Aşı ve tedavi kayıtları muayene sırasında otomatik olarak TARBİL formatına dönüştürülüp iletilir; çift veri girişi gerekmez.</p>
+              <h3>Çift veri girişi yok</h3>
+              <p>Tarih, tür, hayvan ve aşı ürünü Vetly'deki kayıttan doldurulur; aynı bilgiyi TARBİL'e yeniden yazmazsınız, yalnızca kontrol edip onaylarsınız.</p>
             </div>
             <div className="ai-feature-card is-tarbil reveal">
               <div className="ai-feature-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3 2 20h20L12 3Z" /><line x1="12" y1="10" x2="12" y2="14" /><circle cx="12" cy="17" r="0.6" fill="currentColor" /></svg></div>
-              <h3>Anında Hata Uyarısı</h3>
-              <p>İletilemeyen bir bildirim olduğunda ekibiniz anında bilgilendirilir; kaçırılan bildirim riski kalmaz.</p>
+              <h3>Bekleyen bildirim gözden kaçmaz</h3>
+              <p>TARBİL'e henüz gitmemiş her aşı Vetly'de "Bekliyor" olarak listelenir. Yalnızca TARBİL'in gerçekten kaydettiği bildirimler "Gönderildi" görünür.</p>
             </div>
             <div className="ai-feature-card is-tarbil reveal">
               <div className="ai-feature-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3.5 2" /></svg></div>
-              <h3>Toplu Senkronizasyon</h3>
-              <p>Geçmiş kayıtlarınızı tek seferde TARBİL'e aktarın; eksik bildirimleri sistem otomatik olarak tespit eder.</p>
+              <h3>Stok eşitleme</h3>
+              <p>TARBİL'deki aşı ve ilaç stoğunuzu tek tıkla Vetly'ye alır, farkları gösterir. TARBİL'de düşülen ürün Vetly stoğundan da düşer.</p>
             </div>
           </div>
         </div>

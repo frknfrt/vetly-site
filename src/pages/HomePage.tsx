@@ -12,7 +12,6 @@ import { Faq } from '../components/Faq';
 import { ContactCta } from '../components/ContactCta';
 import { Footer } from '../components/Footer';
 import { WhatsAppFloat } from '../components/WhatsAppFloat';
-import { CookieBanner } from '../components/CookieBanner';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { usePageMeta } from '../hooks/usePageMeta';
 import type { SignupPlan } from '../api/signupApi';
@@ -70,7 +69,6 @@ export function HomePage() {
                 <ContactCta selectedPlan={selectedPlan} />
                 <Footer />
                 <WhatsAppFloat />
-                <CookieBanner />
             </div>
         </>
     );
