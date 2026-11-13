@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logoMark from '../assets/logo-mark.png';
 
 export function Header() {
@@ -26,7 +27,7 @@ export function Header() {
                     </svg>
                     Giriş Yap
                 </a>
-                <a href="#iletisim" className="btn btn-primary btn-sm">Hemen Başla</a>
+                <Link to="/deneme" className="btn btn-primary btn-sm">7 Gün Ücretsiz Dene</Link>
             </div>
         </header>
     );

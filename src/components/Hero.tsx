@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
 
 export function Hero() {
@@ -20,10 +21,10 @@ export function Hero() {
             <h1>Kliniğinizi yönetmenin <span className="hl">en akıllı</span> yolu</h1>
             <p className="hero-sub">SOAP kaydından TARBİL bildirimine, muayene notundan stok takibine — Vetly ile hepsi tek ekranda.</p>
             <div className="hero-ctas">
-              <a href="#iletisim" className="btn btn-primary">Hemen Başla</a>
+              <Link to="/deneme" className="btn btn-primary">7 Gün Ücretsiz Dene</Link>
               <a href="#ozellikler" className="btn btn-ghost">Özellikleri İncele</a>
             </div>
-            <p className="hero-note">Kurulum aynı gün tamamlanır · Uzman destek dahildir</p>
+            <p className="hero-note">Kredi kartı gerekmez · Kurulum aynı gün tamamlanır · Uzman destek dahildir</p>
           </div>
 
           <div className="visual-stage">
